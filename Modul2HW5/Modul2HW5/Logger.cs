@@ -17,18 +17,8 @@ namespace Modul2HW5
         public void Write(LogType type, string message)
         {
             var log = $"{DateTime.UtcNow.ToString(_loggerConfig.TimeFormat)}: {type}: {message}";
-            WriteToConsole(log);
-            WriteToFile(log);
-        }
-
-        public void WriteToFile(string log)
-        {
-            _fileService.Write(log);
-        }
-
-        public void WriteToConsole(string log)
-        {
             Console.WriteLine(log);
+            _fileService.Write(log);
         }
 
         public void WriteError(string message)
