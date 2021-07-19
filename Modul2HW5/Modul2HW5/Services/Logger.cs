@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Modul2HW5
 {
-    public class Logger
+    public class Logger : ILogger
     {
         private readonly IConfigService _configService;
         private readonly IFileService _fileService;
@@ -41,7 +41,8 @@ namespace Modul2HW5
             var fileName = DateTime.UtcNow.ToString(_loggerConfig.NameFormat);
             var fileExtension = _loggerConfig.FileExtension;
             var directoryPath = _loggerConfig.DirectoryPath;
-            _fileService.Init(fileName, fileExtension, directoryPath);
+            var capacity = _loggerConfig.DirectoryCapacity;
+            _fileService.Init(fileName, fileExtension, directoryPath, capacity);
         }
     }
 }

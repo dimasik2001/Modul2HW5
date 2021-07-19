@@ -6,5 +6,6 @@
       public string NameFormat { get; set; }
       public string DirectoryPath { get; set; }
       public string FileExtension { get; set; }
+      public int DirectoryCapacity { get; set; }
     }
 }

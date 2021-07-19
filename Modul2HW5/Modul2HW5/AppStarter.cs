@@ -9,7 +9,7 @@ namespace Modul2HW5
         public void Run()
         {
             var serviceProvider = new ServiceCollection()
-                .AddSingleton<Logger>()
+                .AddSingleton<ILogger, Logger>()
                 .AddTransient<IConfigService, ConfigService>()
                 .AddTransient<IFileService, FileService>()
                 .AddTransient<Actions>()

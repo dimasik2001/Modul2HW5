@@ -7,9 +7,11 @@ namespace Modul2HW5
     {
         private StreamWriter _streamWriter;
         private DirectoryInfo _directoryInfo;
+        private int _directoryCapacity;
 
-        public void Init(string fileName, string fileExtension, string directoryPath)
+        public void Init(string fileName, string fileExtension, string directoryPath, int capacity)
         {
+            _directoryCapacity = capacity;
             DirectoryInit(directoryPath);
             _streamWriter = new StreamWriter($"{directoryPath}{fileName}{fileExtension}", true);
         }
@@ -28,19 +30,19 @@ namespace Modul2HW5
             }
             else
             {
-                ClearDirectory();
+                ClearDirectory(_directoryCapacity);
             }
         }
 
-        private void ClearDirectory()
+        private void ClearDirectory(int max)
         {
             var files = _directoryInfo.GetFiles();
 
-            if (files.Length > 3)
+            if (files.Length >= max)
             {
                 Array.Sort(files, new CreationTimeComparer());
 
-                for (var i = 0; i < files.Length - 2; i++)
+                for (var i = 0; i < files.Length - (max - 1); i++)
                 {
                     files[i].Delete();
                 }

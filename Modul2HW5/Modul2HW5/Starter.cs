@@ -9,9 +9,9 @@ namespace Modul2HW5
     public class Starter
     {
         private readonly Actions _actions;
-        private readonly Logger _logger;
+        private readonly ILogger _logger;
         private readonly Random _rnd;
-        public Starter(Actions actions, Logger logger)
+        public Starter(Actions actions, ILogger logger)
         {
             _actions = actions;
             _logger = logger;

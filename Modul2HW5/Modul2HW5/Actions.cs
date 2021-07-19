@@ -4,9 +4,9 @@ namespace Modul2HW5
 {
     public class Actions
     {
-        private readonly Logger _logger;
+        private readonly ILogger _logger;
 
-        public Actions(Logger logger)
+        public Actions(ILogger logger)
         {
             _logger = logger;
         }
