@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Modul2HW5
 {
@@ -6,9 +8,9 @@ namespace Modul2HW5
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Hello World!");
+            var starter = new AppStarter();
+            starter.Run();
+            Console.ReadKey();
         }
     }
 }
